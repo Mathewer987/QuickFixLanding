@@ -1,0 +1,47 @@
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; line-height: 1.6; background: #f9f9f9; color: #333; }
+
+/* HEADER */
+header { display: flex; justify-content: space-between; align-items: center;
+  background: #fff; padding: 15px 30px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+.logo { font-size: 1.5rem; font-weight: bold; color: #00a1e0; }
+nav a, nav button { margin: 0 10px; text-decoration: none; color: #333; font-weight: 500; background: none; border: none; cursor: pointer; }
+nav a:hover, nav button:hover { color: #00a1e0; }
+
+/* DROPDOWN */
+.dropdown { position: relative; display: inline-block; }
+.dropdown-content { display: none; position: absolute; background: #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); padding: 10px; min-width: 150px; }
+.dropdown-content a { display: block; padding: 8px; color: #333; text-decoration: none; }
+.dropdown-content a:hover { background: #f1f1f1; }
+.show { display: block; }
+
+/* FORM */
+.form-section { padding: 50px; text-align: center; background: #e6f7ff; }
+.form-section h1 { margin-bottom: 20px; }
+form input, form textarea, form button { display: block; width: 60%; margin: 10px auto; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+form button { background: #00a1e0; color: #fff; border: none; font-size: 1rem; cursor: pointer; }
+form button:hover { background: #007ba5; }
+
+/* TESTIMONIOS */
+.testimonials { padding: 50px; text-align: center; }
+.cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.card { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); width: 250px; }
+
+/* APP */
+.download-app { padding: 50px; background: #fff; text-align: center; }
+.download-app .buttons button { margin: 10px; padding: 12px 20px; border: none; background: #00a1e0; color: #fff; border-radius: 5px; cursor: pointer; }
+.download-app .buttons button:hover { background: #007ba5; }
+
+/* BLOG */
+.blog-ideas { padding: 50px; background: #f9f9f9; text-align: center; }
+.blog-cards { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.blog-card { background: #fff; padding: 20px; width: 250px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+.blog-card h3 { margin-bottom: 10px; }
+.blog-card a { display: inline-block; margin-top: 10px; color: #00a1e0; text-decoration: none; }
+
+/* FOOTER */
+footer { background: #333; color: #fff; padding: 20px; text-align: center; }
+footer .footer-links a { margin: 0 10px; color: #bbb; text-decoration: none; }
+footer .footer-links a:hover { color: #fff; }
+.cities span { margin: 0 10px; display: inline-block; }

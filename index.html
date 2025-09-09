@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Timbrit - Clon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #3b82f6;
+      --accent-color: #2563eb;
+      --light-color: #f8fafc;
+      --dark-color: #1e293b;
+      --text-color: #334155;
+      --text-light: #64748b;
+      --white: #ffffff;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Líneas de fondo abstractas */
+    .background-lines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .line {
+      position: absolute;
+      background: linear-gradient(90deg, rgba(37, 99, 235, 0.1) 0%, rgba(37, 99, 235, 0.4) 50%, rgba(37, 99, 235, 0.1) 100%);
+      border-radius: 20px;
+      transform-origin: left center;
+      animation: float 15s infinite linear;
+    }
+
+    .line-1 {
+      width: 150%;
+      height: 2px;
+      top: 20%;
+      left: -50%;
+      transform: rotate(15deg);
+      animation-delay: 0s;
+    }
+
+    .line-2 {
+      width: 120%;
+      height: 1px;
+      top: 40%;
+      left: -30%;
+      transform: rotate(-10deg);
+      animation-delay: 2s;
+    }
+
+    .line-3 {
+      width: 180%;
+      height: 3px;
+      top: 65%;
+      left: -80%;
+      transform: rotate(5deg);
+      animation-delay: 4s;
+    }
+
+    .line-4 {
+      width: 200%;
+      height: 1.5px;
+      bottom: 15%;
+      left: -100%;
+      transform: rotate(-15deg);
+      animation-delay: 6s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateX(0) rotate(15deg);
+      }
+      100% {
+        transform: translateX(100vw) rotate(15deg);
+      }
+    }
+
+    body {
+      background-color: var(--light-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 0;
+      margin-bottom: 20px;
+      background-color: transparent;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--dark-color);
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: var(--accent-color);
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    nav a, nav button {
+      position: relative;
+      font-weight: 500;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 15px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    nav a:hover, nav button:hover {
+      color: var(--accent-color);
+    }
+
+    /* DROPDOWN */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      padding: 10px;
+      min-width: 180px;
+      border-radius: 8px;
+      z-index: 100;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px;
+      color: var(--text-color);
+      text-decoration: none;
+      transition: all 0.2s;
+      border-radius: 4px;
+    }
+
+    .dropdown-content a:hover {
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--accent-color);
+    }
+
+    .show {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    /* FORM */
+    .form-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #e6f7ff 0%, #edf2ff 100%);
+      border-radius: 16px;
+      margin: 40px auto;
+      max-width: 1000px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-section h1 {
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: var(--dark-color);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    form input, form textarea, form button {
+      padding: 16px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    form input:focus, form textarea:focus {
+      outline: none;
+      border-color: var(--accent-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    form input, form textarea {
+      background: var(--white);
+    }
+
+    form button {
+      background: var(--accent-color);
+      color: var(--white);
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    form button:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    /* TESTIMONIOS */
+    .testimonials {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .testimonials h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: var(--dark-color);
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      width: 300px;
+      transition: all 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    /* APP */
+    .download-app {
+      padding: 80px 20px;
+      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+      text-align: center;
+      color: var(--white);
+      border-radius: 16px;
+      margin: 40px auto;
+      max-width: 1000px;
+    }
+
+    .download-app h2 {
+      font-size: 32px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .download-app .buttons button {
+      padding: 16px 30px;
+      border: none;
+      background: var(--white);
+      color: var(--dark-color);
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .download-app .buttons button:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+    }
+
+    /* BLOG */
+    .blog-ideas {
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .blog-ideas h2 {
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: var(--dark-color);
+    }
+
+    .blog-cards {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .blog-card {
+      background: var(--white);
+      padding: 30px;
+      width: 320px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+      text-align: left;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .blog-card h3 {
+      margin-bottom: 15px;
+      color: var(--dark-color);
+      font-size: 20px;
+    }
+
+    .blog-card p {
+      color: var(--text-light);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .blog-card a {
+      display: inline-block;
+      margin-top: 10px;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .blog-card a:hover {
+      color: #1d4ed8;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark-color);
+      color: var(--white);
+      padding: 50px 20px 30px;
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    .cities {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .cities span {
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .cities span:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    footer p {
+      color: #94a3b8;
+      margin-top: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .form-section, .download-app {
+        margin: 30px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .form-section, .download-app {
+        padding: 40px 20px;
+        margin: 20px;
+      }
+      
+      .testimonials, .blog-ideas {
+        padding: 60px 20px;
+      }
+      
+      .footer-links {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .form-section h1, .testimonials h2, .download-app h2, .blog-ideas h2 {
+        font-size: 28px;
+      }
+      
+      .cards, .blog-cards {
+        gap: 20px;
+      }
+      
+      .card, .blog-card {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Líneas de fondo abstractas -->
+  <div class="background-lines">
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+    <div class="line line-4"></div>
+  </div>
+
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="logo">timb<span>rit</span></div>
+      <nav>
+        <a href="#">Cómo funciona</a>
+        <a href="#">¿Sos profesional?</a>
+        <div class="dropdown">
+          <button id="services-btn">Servicios ▾</button>
+          <div class="dropdown-content" id="services-list">
+            <a href="#">Albañil</a>
+            <a href="#">Electricista</a>
+            <a href="#">Plomero</a>
+            <a href="#">Pintor</a>
+            <a href="#">Mudanzas</a>
+          </div>
+        </div>
+        <a href="#">Acceder</a>
+      </nav>
+    </header>
+
+    <!-- FORMULARIO PRINCIPAL -->
+    <section class="form-section">
+      <h1>¿Qué servicio necesitás?</h1>
+      <form id="budget-form">
+        <input type="text" placeholder="Título del trabajo" required />
+        <textarea placeholder="Descripción del servicio" rows="4" required></textarea>
+        <input type="file" multiple />
+        <input type="text" placeholder="Ubicación" required />
+        <button type="submit">Pedir presupuesto</button>
+      </form>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section class="testimonials">
+      <h2>Lo que cuentan los clientes</h2>
+      <div class="cards">
+        <div class="card">⭐️⭐️⭐️⭐️⭐️ "Me encanta la app, conseguí un plomero rapidísimo."</div>
+        <div class="card">⭐️⭐️⭐️⭐️ "Muy fácil de usar, en minutos encontré un electricista."</div>
+        <div class="card">⭐️⭐️⭐️⭐️⭐️ "La mejor forma de contratar servicios en casa."</div>
+      </div>
+    </section>
+
+    <!-- DESCARGA APP -->
+    <section class="download-app">
+      <h2>Descargá la APP de timbrit</h2>
+      <div class="buttons">
+        <button>Google Play</button>
+        <button>App Store</button>
+      </div>
+    </section>
+
+    <!-- BLOG / IDEAS -->
+    <section class="blog-ideas">
+      <h2>Ideas para tu hogar</h2>
+      <div class="blog-cards">
+        <div class="blog-card">
+          <h3>6 trucos de orden y limpieza</h3>
+          <p>Aprendé tips prácticos para mantener tu casa impecable.</p>
+          <a href="#">Leer más</a>
+        </div>
+        <div class="blog-card">
+          <h3>Sistemas de seguridad en el hogar</h3>
+          <p>Protegé tu casa con las últimas tecnologías en seguridad.</p>
+          <a href="#">Leer más</a>
+        </div>
+        <div class="blog-card">
+          <h3>Cómo pintar tu casa como un profesional</h3>
+          <p>Consejos para lograr un acabado perfecto en tus paredes.</p>
+          <a href="#">Leer más</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="cities">
+      <span>Buenos Aires</span>
+      <span>Madrid</span>
+      <span>Bogotá</span>
+      <span>Ciudad de México</span>
+    </div>
+    <div class="footer-links">
+      <a href="#">Blog</a>
+      <a href="#">FAQ</a>
+      <a href="#">Términos y condiciones</a>
+      <a href="#">Contacto</a>
+    </div>
+    <p>© 2025 Timbrit - Clon educativo</p>
+  </footer>
+
+  <script>
+    // Dropdown servicios
+    document.getElementById('services-btn').addEventListener('click', () => {
+      document.getElementById('services-list').classList.toggle('show');
+    });
+
+    // Cerrar dropdown al hacer clic fuera
+    window.addEventListener('click', (e) => {
+      if (!e.target.matches('#services-btn')) {
+        const dropdown = document.getElementById('services-list');
+        if (dropdown.classList.contains('show')) {
+          dropdown.classList.remove('show');
+        }
+      }
+    });
+
+    // Formulario
+    document.getElementById('budget-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('¡Tu solicitud fue enviada con éxito! (simulado)');
+    });
+  </script>
+</body>
+</html>
