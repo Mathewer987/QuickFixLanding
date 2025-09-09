@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Timbrit - Clon</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>QuickFix - Encuentra Profesionales de Confianza</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Variables de colores y estilos */
     :root {
       --primary-color: #2563eb;
       --secondary-color: #3b82f6;
@@ -18,6 +18,7 @@
       --text-light: #64748b;
       --white: #ffffff;
       --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
 
     * {
@@ -91,12 +92,14 @@
       }
     }
 
+    .header {
+      background-color: transparent;
+    }
+
     body {
       background-color: var(--light-color);
       color: var(--text-color);
       line-height: 1.6;
-      padding: 0;
-      margin: 0;
     }
 
     .container {
@@ -105,14 +108,13 @@
       padding: 0 20px;
     }
 
-    /* HEADER */
-    header {
+    /* Header/Navigation */
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 25px 0;
-      margin-bottom: 20px;
-      background-color: transparent;
+      margin-bottom: 60px;
     }
 
     .logo {
@@ -126,367 +128,726 @@
       color: var(--accent-color);
     }
 
-    nav {
+    .nav {
       display: flex;
       gap: 25px;
       align-items: center;
     }
 
-    nav a, nav button {
+    .nav-item {
       position: relative;
       font-weight: 500;
       color: var(--text-color);
       text-decoration: none;
       transition: all 0.3s ease;
       font-size: 15px;
-      background: none;
-      border: none;
-      cursor: pointer;
     }
 
-    nav a:hover, nav button:hover {
+    .nav-item:hover {
       color: var(--accent-color);
     }
 
-    /* DROPDOWN */
-    .dropdown {
-      position: relative;
-      display: inline-block;
+    .nav-item.active {
+      color: var(--accent-color);
+      font-weight: 600;
     }
 
-    .dropdown-content {
-      display: none;
+    .nav-item.active::after {
+      content: '';
       position: absolute;
-      background: var(--white);
-      box-shadow: var(--shadow);
-      padding: 10px;
-      min-width: 180px;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+
+    .login-btn {
+      padding: 8px 20px;
       border-radius: 8px;
-      z-index: 100;
+      transition: all 0.3s;
     }
 
-    .dropdown-content a {
-      display: block;
-      padding: 10px;
-      color: var(--text-color);
-      text-decoration: none;
-      transition: all 0.2s;
-      border-radius: 4px;
+    .login-btn:hover {
+      background-color: rgba(59, 130, 246, 0.1);
+      color: var(--primary-color);
     }
 
-    .dropdown-content a:hover {
-      background: rgba(37, 99, 235, 0.1);
-      color: var(--accent-color);
+    .register-btn {
+      padding: 8px 20px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      transition: all 0.3s;
     }
 
-    .show {
-      display: block;
-      animation: fadeIn 0.3s ease-out;
+    .register-btn:hover {
+      background-color: #1d4ed8;
+      color: white;
     }
 
-    /* FORM */
-    .form-section {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #e6f7ff 0%, #edf2ff 100%);
-      border-radius: 16px;
-      margin: 40px auto;
-      max-width: 1000px;
-      box-shadow: var(--shadow);
-    }
-
-    .form-section h1 {
-      margin-bottom: 30px;
-      font-size: 32px;
+    .mobile-menu-btn {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
       color: var(--dark-color);
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      max-width: 600px;
-      margin: 0 auto;
+    /* Hero Section */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+      background: linear-gradient(135deg, #e6f7ff 0%, #edf2ff 100%);
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 60px;
     }
 
-    form input, form textarea, form button {
-      padding: 16px;
-      border: 1px solid #e2e8f0;
+    .hero-text {
+      max-width: 600px;
+      margin: 0 auto;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .tagline {
+      display: inline-block;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+      font-weight: 600;
+      padding: 6px 12px;
+      background-color: rgba(37, 99, 235, 0.1);
+      border-radius: 50px;
+    }
+
+    .title {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      color: var(--dark-color);
+    }
+
+    .title span {
+      color: var(--accent-color);
+    }
+
+    .description {
+      font-size: 18px;
+      color: var(--text-light);
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .cta-container {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 30px;
       border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+
+    .cta-button.primary {
+      background-color: var(--accent-color);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-button.primary:hover {
+      background-color: rgb(46, 46, 247);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .cta-button.secondary {
+      background-color: var(--white);
+      color: var(--dark-color);
+      border: 1px solid #e2e8f0;
+    }
+
+    .cta-button.secondary:hover {
+      background-color: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    /* Categories Section */
+    .categories {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .categories h2 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+      color: var(--dark-color);
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .category-card {
+      background: var(--light-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: all 0.3s;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .category-img {
+      height: 180px;
+      background-color: var(--light-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-color);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .category-img i {
+      font-size: 64px;
+      opacity: 0.8;
+    }
+
+    .category-content {
+      padding: 25px;
+    }
+
+    .category-content h3 {
+      margin-bottom: 15px;
+      color: var(--primary-color);
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .category-list {
+      list-style: none;
+    }
+
+    .category-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--light-color);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+    }
+
+    .category-list li:last-child {
+      border-bottom: none;
+    }
+
+    .category-list li:hover {
+      background-color: rgba(37, 99, 235, 0.05);
+      padding-left: 10px;
+      border-radius: 6px;
+    }
+
+    .category-list i {
+      color: var(--primary-color);
+      width: 20px;
+      text-align: center;
+    }
+
+    /* Form Section */
+    .form-section {
+      background-color: var(--white);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      margin-bottom: 60px;
+    }
+
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--dark-color);
+      font-size: 1.8rem;
+    }
+
+    #budget-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    #budget-form input,
+    #budget-form textarea,
+    #budget-form select {
+      padding: 15px;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
       font-size: 16px;
       transition: all 0.3s;
     }
 
-    form input:focus, form textarea:focus {
+    #budget-form input:focus,
+    #budget-form textarea:focus,
+    #budget-form select:focus {
       outline: none;
-      border-color: var(--accent-color);
+      border-color: var(--primary-color);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
-    form input, form textarea {
-      background: var(--white);
+    #budget-form textarea {
+      grid-column: span 2;
+      resize: vertical;
+      min-height: 120px;
     }
 
-    form button {
-      background: var(--accent-color);
+    .file-input-container {
+      grid-column: span 2;
+      position: relative;
+    }
+
+    .file-input-container input {
+      width: 100%;
+      padding: 15px;
+      border: 1px dashed #e2e8f0;
+      border-radius: 8px;
+      background-color: #fafafa;
+    }
+
+    .file-input-container::before {
+      content: 'Subir imágenes (opcional)';
+      position: absolute;
+      top: -10px;
+      left: 15px;
+      background: var(--white);
+      padding: 0 10px;
+      font-size: 14px;
+      color: var(--text-light);
+    }
+
+    .submit-btn {
+      grid-column: span 2;
+      padding: 16px;
+      background-color: var(--primary-color);
       color: var(--white);
       border: none;
+      border-radius: 8px;
+      font-size: 18px;
       font-weight: 600;
       cursor: pointer;
+      transition: all 0.3s;
       margin-top: 10px;
-      box-shadow: var(--shadow);
     }
 
-    form button:hover {
-      background: #1d4ed8;
+    .submit-btn:hover {
+      background-color: #1d4ed8;
       transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
     }
 
-    /* TESTIMONIOS */
+    /* Testimonials */
     .testimonials {
-      padding: 80px 20px;
-      text-align: center;
+      margin-bottom: 60px;
     }
 
     .testimonials h2 {
-      font-size: 32px;
+      text-align: center;
       margin-bottom: 40px;
+      font-size: 2rem;
       color: var(--dark-color);
     }
 
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
+    .testimonial-slider {
+      position: relative;
+      overflow: hidden;
+      height: 250px;
     }
 
-    .card {
-      background: var(--white);
+    .testimonial-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .testimonial-card {
+      flex: 0 0 100%;
       padding: 30px;
-      border-radius: 16px;
+      background: var(--white);
+      border-radius: 12px;
       box-shadow: var(--shadow);
-      width: 300px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stars {
+      color: #f59e0b;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 15px;
+      color: var(--text-light);
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--dark-color);
+    }
+
+    .slider-nav {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #e2e8f0;
+      cursor: pointer;
       transition: all 0.3s;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    .slider-dot.active {
+      background-color: var(--primary-color);
+      transform: scale(1.2);
     }
 
-    /* APP */
+    /* Download App */
     .download-app {
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-      text-align: center;
-      color: var(--white);
+      background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
+      padding: 60px 0;
       border-radius: 16px;
-      margin: 40px auto;
-      max-width: 1000px;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 60px;
     }
 
     .download-app h2 {
-      font-size: 32px;
-      margin-bottom: 30px;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
     }
 
-    .buttons {
+    .download-app p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    .app-buttons {
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
     }
 
-    .download-app .buttons button {
-      padding: 16px 30px;
-      border: none;
-      background: var(--white);
-      color: var(--dark-color);
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.3s;
+    .app-btn {
       display: flex;
       align-items: center;
       gap: 10px;
-      box-shadow: var(--shadow);
+      padding: 15px 25px;
+      background: var(--white);
+      color: var(--dark-color);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
     }
 
-    .download-app .buttons button:hover {
-      background: #f1f5f9;
-      transform: translateY(-2px);
+    .app-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* BLOG */
+    .app-btn i {
+      font-size: 24px;
+    }
+
+    /* Blog Section */
     .blog-ideas {
-      padding: 80px 20px;
-      text-align: center;
+      margin-bottom: 60px;
     }
 
     .blog-ideas h2 {
-      font-size: 32px;
+      text-align: center;
       margin-bottom: 40px;
+      font-size: 2rem;
       color: var(--dark-color);
     }
 
-    .blog-cards {
-      display: flex;
-      justify-content: center;
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
-      flex-wrap: wrap;
     }
 
     .blog-card {
       background: var(--white);
-      padding: 30px;
-      width: 320px;
-      border-radius: 16px;
+      border-radius: 12px;
+      overflow: hidden;
       box-shadow: var(--shadow);
       transition: all 0.3s;
-      text-align: left;
     }
 
     .blog-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .blog-img {
+      height: 180px;
+      background-color: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+    }
+
+    .blog-content {
+      padding: 25px;
     }
 
     .blog-card h3 {
       margin-bottom: 15px;
       color: var(--dark-color);
-      font-size: 20px;
     }
 
     .blog-card p {
       color: var(--text-light);
       margin-bottom: 20px;
-      line-height: 1.6;
     }
 
-    .blog-card a {
-      display: inline-block;
-      margin-top: 10px;
-      color: var(--accent-color);
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: 600;
-      transition: all 0.2s;
+      gap: 5px;
+      transition: gap 0.3s;
     }
 
-    .blog-card a:hover {
-      color: #1d4ed8;
+    .read-more:hover {
+      gap: 10px;
     }
 
-    /* FOOTER */
+    /* Footer */
     footer {
-      background: var(--dark-color);
+      background-color: var(--dark-color);
       color: var(--white);
-      padding: 50px 20px 30px;
-      text-align: center;
-      margin-top: 80px;
+      padding: 50px 0 20px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--white);
+    }
+
+    .footer-desc {
+      opacity: 0.8;
+      margin-bottom: 20px;
     }
 
     .cities {
       display: flex;
-      justify-content: center;
-      gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 30px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
 
-    .cities span {
-      padding: 8px 16px;
+    .city-tag {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 50px;
-      transition: all 0.2s;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      transition: all 0.3s;
       cursor: pointer;
     }
 
-    .cities span:hover {
+    .city-tag:hover {
       background: rgba(255, 255, 255, 0.2);
     }
 
+    .footer-heading {
+      font-size: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary-color);
+    }
+
     .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 12px;
     }
 
     .footer-links a {
       color: #cbd5e1;
       text-decoration: none;
-      transition: all 0.2s;
+      opacity: 0.8;
+      transition: all 0.3s;
     }
 
     .footer-links a:hover {
+      opacity: 1;
       color: var(--white);
+      padding-left: 5px;
     }
 
-    footer p {
-      color: #94a3b8;
-      margin-top: 20px;
+    .copyright {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+      font-size: 14px;
     }
 
     /* Animations */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Responsive */
+    /* Responsive Design */
     @media (max-width: 992px) {
-      .form-section, .download-app {
-        margin: 30px 20px;
+      .title {
+        font-size: 40px;
+      }
+      
+      .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      #budget-form {
+        grid-template-columns: 1fr;
+      }
+      
+      #budget-form textarea,
+      .file-input-container,
+      .submit-btn {
+        grid-column: 1;
       }
     }
 
     @media (max-width: 768px) {
-      header {
+      .nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: var(--white);
         flex-direction: column;
-        gap: 20px;
         padding: 20px;
-      }
-      
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      
-      .form-section, .download-app {
-        padding: 40px 20px;
-        margin: 20px;
-      }
-      
-      .testimonials, .blog-ideas {
-        padding: 60px 20px;
-      }
-      
-      .footer-links {
-        flex-direction: column;
+        box-shadow: var(--shadow-lg);
         gap: 15px;
+      }
+      
+      .nav.active {
+        display: flex;
+        animation: fadeIn 0.3s;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .title {
+        font-size: 36px;
+      }
+      
+      .description {
+        font-size: 16px;
+      }
+      
+      .cta-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .categories-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-section {
+        padding: 30px 20px;
       }
     }
 
     @media (max-width: 576px) {
-      .form-section h1, .testimonials h2, .download-app h2, .blog-ideas h2 {
-        font-size: 28px;
+      .title {
+        font-size: 32px;
       }
       
-      .cards, .blog-cards {
-        gap: 20px;
+      .hero-text {
+        text-align: center;
       }
       
-      .card, .blog-card {
+      .cta-container {
+        align-items: center;
+      }
+      
+      .cta-button {
         width: 100%;
-        max-width: 300px;
+        text-align: center;
+      }
+      
+      .testimonial-card {
+        padding: 20px;
+      }
+      
+      .app-btn {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+      
+      .blog-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -502,116 +863,315 @@
 
   <div class="container">
     <!-- HEADER -->
-    <header>
-      <div class="logo">timb<span>rit</span></div>
-      <nav>
-        <a href="#">Cómo funciona</a>
-        <a href="#">¿Sos profesional?</a>
-        <div class="dropdown">
-          <button id="services-btn">Servicios ▾</button>
-          <div class="dropdown-content" id="services-list">
-            <a href="#">Albañil</a>
-            <a href="#">Electricista</a>
-            <a href="#">Plomero</a>
-            <a href="#">Pintor</a>
-            <a href="#">Mudanzas</a>
-          </div>
-        </div>
-        <a href="#">Acceder</a>
+    <header class="header">
+      <div class="logo">Quick<span>Fix</span></div>
+      <nav class="nav">
+        <a href="#" class="nav-item">Cómo funciona</a>
+        <a href="#" class="nav-item">¿Sos profesional?</a>
+        <a href="#" class="nav-item active">Servicios</a>
+        <a href="#" class="nav-item login-btn">Acceder</a>
+        <a href="#" class="nav-item register-btn">Registrarse</a>
+        <a href="#" class="nav-item register-btn">Inicia Sesion</a>
+
       </nav>
+      <button class="mobile-menu-btn" id="mobile-menu-toggle">
+        <i class="fas fa-bars"></i>
+      </button>
     </header>
 
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-text">
+        <span class="tagline">Encuentra profesionales de confianza</span>
+        <h1 class="title">Los mejores <span>servicios</span> para tu hogar</h1>
+        <p class="description">Conectamos clientes con profesionales de confianza para todo tipo de trabajos y servicios</p>
+        <div class="cta-container">
+          <a href="#form" class="cta-button primary">Solicitar servicio</a>
+          <a href="#categories" class="cta-button secondary">Ver categorías</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories" id="categories">
+      <div class="container">
+        <h2>Conoce nuestras categorías</h2>
+        <div class="categories-grid">
+          <!-- Reparaciones y mantenimiento del hogar -->
+          <div class="category-card">
+            <div class="category-img">
+              <i class="fas fa-tools"></i>
+            </div>
+            <div class="category-content">
+              <h3><i class="fas fa-tools"></i> Reparaciones y mantenimiento</h3>
+              <ul class="category-list">
+                <li><i class="fas fa-wrench"></i> Fontanero / Plomero</li>
+                <li><i class="fas fa-bolt"></i> Electricista</li>
+                <li><i class="fas fa-fire"></i> Gasista matriculado</li>
+                <li><i class="fas fa-trowel"></i> Albañil</li>
+                <li><i class="fas fa-hammer"></i> Carpintero</li>
+                <li><i class="fas fa-paint-roller"></i> Pintor</li>
+                <li><i class="fas fa-hammer"></i> Herrero</li>
+                <li><i class="fas fa-house-damage"></i> Techista / Impermeabilizador</li>
+                <li><i class="fas fa-key"></i> Cerrajero</li>
+                <li><i class="fas fa-fan"></i> Instalador de aires acondicionados</li>
+                <li><i class="fas fa-shield-alt"></i> Instalador de alarmas / cámaras</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Limpieza y mantenimiento -->
+          <div class="category-card">
+            <div class="category-img">
+              <i class="fas fa-broom"></i>
+            </div>
+            <div class="category-content">
+              <h3><i class="fas fa-broom"></i> Limpieza y mantenimiento</h3>
+              <ul class="category-list">
+                <li><i class="fas fa-soap"></i> Personal de limpieza (hogares, oficinas)</li>
+                <li><i class="fas fa-tint"></i> Limpieza de tanques de agua</li>
+                <li><i class="fas fa-window-restore"></i> Limpieza de vidrios en altura</li>
+                <li><i class="fas fa-rug"></i> Lavado de alfombras / cortinas</li>
+                <li><i class="fas fa-bug"></i> Fumigador</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Jardinería y exteriores -->
+          <div class="category-card">
+            <div class="category-img">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="category-content">
+              <h3><i class="fas fa-leaf"></i> Jardinería y exteriores</h3>
+              <ul class="category-list">
+                <li><i class="fas fa-seedling"></i> Jardinero</li>
+                <li><i class="fas fa-tree"></i> Podador de árboles</li>
+                <li><i class="fas fa-swimming-pool"></i> Mantenimiento de piletas</li>
+                <li><i class="fas fa-mountain"></i> Paisajista</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Servicios técnicos -->
+          <div class="category-card">
+            <div class="category-img">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="category-content">
+              <h3><i class="fas fa-laptop-code"></i> Servicios técnicos</h3>
+              <ul class="category-list">
+                <li><i class="fas fa-blender"></i> Técnico de electrodomésticos</li>
+                <li><i class="fas fa-mobile-alt"></i> Técnico de celulares</li>
+                <li><i class="fas fa-laptop"></i> Técnico de computadoras / laptops</li>
+                <li><i class="fas fa-tv"></i> Técnico de televisores / equipos electrónicos</li>
+                <li><i class="fas fa-print"></i> Técnico de impresoras</li>
+                <li><i class="fas fa-wifi"></i> Instalador de redes / WiFi</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- FORMULARIO PRINCIPAL -->
-    <section class="form-section">
-      <h1>¿Qué servicio necesitás?</h1>
-      <form id="budget-form">
-        <input type="text" placeholder="Título del trabajo" required />
-        <textarea placeholder="Descripción del servicio" rows="4" required></textarea>
-        <input type="file" multiple />
-        <input type="text" placeholder="Ubicación" required />
-        <button type="submit">Pedir presupuesto</button>
-      </form>
+    <section class="container" id="form">
+      <div class="form-section">
+        <h2>¿Qué servicio necesitás?</h2>
+        <form id="budget-form">
+          <input type="text" placeholder="Título del trabajo" required />
+          <select>
+            <option value="" disabled selected>Seleccionar categoría</option>
+            <option value="fontanero">Fontanero / Plomero</option>
+            <option value="electricista">Electricista</option>
+            <option value="gasista">Gasista matriculado</option>
+            <option value="albañil">Albañil</option>
+            <option value="carpintero">Carpintero</option>
+            <option value="pintor">Pintor</option>
+            <option value="herrero">Herrero</option>
+            <option value="techista">Techista / Impermeabilizador</option>
+            <option value="cerrajero">Cerrajero</option>
+            <option value="aires">Instalador de aires acondicionados</option>
+            <option value="alarmas">Instalador de alarmas / cámaras de seguridad</option>
+            <option value="limpieza">Personal de limpieza</option>
+            <option value="tanques">Limpieza de tanques de agua</option>
+            <option value="vidrios">Limpieza de vidrios en altura</option>
+            <option value="alfombras">Lavado de alfombras / cortinas</option>
+            <option value="fumigador">Fumigador</option>
+            <option value="jardinero">Jardinero</option>
+            <option value="podador">Podador de árboles</option>
+            <option value="piletas">Mantenimiento de piletas</option>
+            <option value="paisajista">Paisajista</option>
+            <option value="electrodomesticos">Técnico de electrodomésticos</option>
+            <option value="celulares">Técnico de celulares</option>
+            <option value="computadoras">Técnico de computadoras / laptops</option>
+            <option value="televisores">Técnico de televisores / equipos electrónicos</option>
+            <option value="impresoras">Técnico de impresoras</option>
+            <option value="redes">Instalador de redes / WiFi</option>
+          </select>
+          <textarea placeholder="Describe tu proyecto en detalle..." required></textarea>
+          <div class="file-input-container">
+            <input type="file" multiple />
+          </div>
+          <input type="text" placeholder="Ubicación" required />
+          <button type="submit" class="submit-btn">Pedir presupuesto</button>
+        </form>
+      </div>
     </section>
 
     <!-- TESTIMONIOS -->
-    <section class="testimonials">
-      <h2>Lo que cuentan los clientes</h2>
-      <div class="cards">
-        <div class="card">⭐️⭐️⭐️⭐️⭐️ "Me encanta la app, conseguí un plomero rapidísimo."</div>
-        <div class="card">⭐️⭐️⭐️⭐️ "Muy fácil de usar, en minutos encontré un electricista."</div>
-        <div class="card">⭐️⭐️⭐️⭐️⭐️ "La mejor forma de contratar servicios en casa."</div>
+    <section class="testimonials container">
+      <h2>Lo que cuentan nuestros clientes</h2>
+      <div class="testimonial-slider">
+        <div class="testimonial-track" id="testimonial-track">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Me encanta la app, conseguí un plomero rapidísimo y a muy buen precio. ¡Super recomendable!"</p>
+            <div class="testimonial-author">- María L.</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Muy fácil de usar, en minutos encontré un electricista que resolvió mi problema el mismo día."</p>
+            <div class="testimonial-author">- Carlos R.</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"La mejor forma de contratar servicios para el hogar. Los profesionales están verificados y los precios son justos."</p>
+            <div class="testimonial-author">- Laura M.</div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-nav" id="slider-nav">
+        <div class="slider-dot active"></div>
+        <div class="slider-dot"></div>
+        <div class="slider-dot"></div>
       </div>
     </section>
 
     <!-- DESCARGA APP -->
     <section class="download-app">
-      <h2>Descargá la APP de timbrit</h2>
-      <div class="buttons">
-        <button>Google Play</button>
-        <button>App Store</button>
-      </div>
+      <div class="container">
+        <h2>Descargá la APP de QuickFix</h2>
+        <p>Encontrá profesionales, pedí presupuestos y gestioná tus proyectos desde tu celular</p>
+        <div class="app-buttons">
+          <a href="#" class="app-btn">
+            <i class="fab fa-google-play"></i>
+            <span>Google Play</span>
+          </a>
+          <a href="#" class="app-btn">
+            <i class="fab fa-apple"></i>
+            <span>App Store</span>
+          </a>
+        </div>
+        </div>
     </section>
 
-    <!-- BLOG / IDEAS -->
-    <section class="blog-ideas">
-      <h2>Ideas para tu hogar</h2>
-      <div class="blog-cards">
-        <div class="blog-card">
-          <h3>6 trucos de orden y limpieza</h3>
-          <p>Aprendé tips prácticos para mantener tu casa impecable.</p>
-          <a href="#">Leer más</a>
-        </div>
-        <div class="blog-card">
-          <h3>Sistemas de seguridad en el hogar</h3>
-          <p>Protegé tu casa con las últimas tecnologías en seguridad.</p>
-          <a href="#">Leer más</a>
-        </div>
-        <div class="blog-card">
-          <h3>Cómo pintar tu casa como un profesional</h3>
-          <p>Consejos para lograr un acabado perfecto en tus paredes.</p>
-          <a href="#">Leer más</a>
-        </div>
-      </div>
-    </section>
-  </div>
+   
 
   <!-- FOOTER -->
   <footer>
-    <div class="cities">
-      <span>Buenos Aires</span>
-      <span>Madrid</span>
-      <span>Bogotá</span>
-      <span>Ciudad de México</span>
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">QuickFix</div>
+          <p class="footer-desc">Conectamos clientes con profesionales de confianza para hacer realidad tus proyectos.</p>
+          <div class="cities">
+            <span class="city-tag">Buenos Aires</span>
+            <span class="city-tag">Madrid</span>
+            <span class="city-tag">Bogotá</span>
+            <span class="city-tag">Ciudad de México</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="footer-heading">Enlaces útiles</h3>
+          <ul class="footer-links">
+            <li><a href="#">Cómo funciona</a></li>
+            <li><a href="#">¿Sos profesional?</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="footer-heading">Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>© 2025 QuickFix. Todos los derechos reservados.</p>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#">Blog</a>
-      <a href="#">FAQ</a>
-      <a href="#">Términos y condiciones</a>
-      <a href="#">Contacto</a>
-    </div>
-    <p>© 2025 Timbrit - Clon educativo</p>
   </footer>
 
   <script>
-    // Dropdown servicios
-    document.getElementById('services-btn').addEventListener('click', () => {
-      document.getElementById('services-list').classList.toggle('show');
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav').classList.toggle('active');
     });
 
-    // Cerrar dropdown al hacer clic fuera
-    window.addEventListener('click', (e) => {
-      if (!e.target.matches('#services-btn')) {
-        const dropdown = document.getElementById('services-list');
-        if (dropdown.classList.contains('show')) {
-          dropdown.classList.remove('show');
-        }
-      }
+    // Testimonial slider
+    const track = document.getElementById('testimonial-track');
+    const dots = document.querySelectorAll('.slider-dot');
+    let currentIndex = 0;
+
+    function moveSlider(index) {
+      currentIndex = index;
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIndex);
+      });
+    }
+
+    // Initialize dots click events
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => moveSlider(index));
     });
 
-    // Formulario
+    // Auto slide
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % dots.length;
+      moveSlider(currentIndex);
+    }, 5000);
+
+    // Form submission
     document.getElementById('budget-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('¡Tu solicitud fue enviada con éxito! (simulado)');
+      
+      // Simulate form submission
+      const submitBtn = this.querySelector('.submit-btn');
+      submitBtn.innerHTML = 'Enviando... <i class="fas fa-spinner fa-spin"></i>';
+      submitBtn.disabled = true;
+      
+      setTimeout(() => {
+        alert('¡Tu solicitud fue enviada con éxito! En breve recibirás presupuestos de nuestros profesionales.');
+        this.reset();
+        submitBtn.innerHTML = 'Pedir presupuesto';
+        submitBtn.disabled = false;
+      }, 1500);
     });
   </script>
 </body>
