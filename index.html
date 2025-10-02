@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Variables de colores y estilos */
+
     :root {
       --primary-color: #2563eb;
       --secondary-color: #3b82f6;
@@ -21,14 +21,18 @@
       --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+
     * {
-      mar n: 0;
+      margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Líneas de fondo abstractas */
     .background-lines {
       position: fixed;
       top: 0;
@@ -108,7 +112,6 @@
       padding: 0 20px;
     }
 
-    /* Header/Navigation */
     .header {
       display: flex;
       justify-content: space-between;
@@ -193,7 +196,6 @@
       color: var(--dark-color);
     }
 
-    /* Hero Section */
     .hero {
       padding: 80px 0;
       text-align: center;
@@ -283,7 +285,6 @@
       border-color: #cbd5e1;
     }
 
-    /* Categories Section */
     .categories {
       padding: 80px 0;
       background-color: var(--white);
@@ -373,7 +374,6 @@
       text-align: center;
     }
 
-    /* Form Section */
     .form-section {
       background-color: var(--white);
       padding: 40px;
@@ -463,7 +463,6 @@
       box-shadow: var(--shadow-lg);
     }
 
-    /* Testimonials */
     .testimonials {
       margin-bottom: 60px;
     }
@@ -536,7 +535,6 @@
       transform: scale(1.2);
     }
 
-    /* Download App */
     .download-app {
       background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
       padding: 60px 0;
@@ -587,7 +585,6 @@
       font-size: 24px;
     }
 
-    /* Blog Section */
     .blog-ideas {
       margin-bottom: 60px;
     }
@@ -655,7 +652,6 @@
       gap: 10px;
     }
 
-    /* Footer */
     footer {
       background-color: var(--dark-color);
       color: var(--white);
@@ -747,13 +743,11 @@
       font-size: 14px;
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Responsive Design */
     @media (max-width: 992px) {
       .title {
         font-size: 40px;
@@ -853,7 +847,6 @@
   </style>
 </head>
 <body>
-  <!-- Líneas de fondo abstractas -->
   <div class="background-lines">
     <div class="line line-1"></div>
     <div class="line line-2"></div>
@@ -862,14 +855,13 @@
   </div>
 
   <div class="container">
-    <!-- HEADER -->
     <header class="header">
       <div class="logo">Quick<span>Fix</span></div>
       <nav class="nav">
-        <a href="#" class="nav-item">Cómo funciona</a>
+        <a href="#" class="nav-item">¿Estas desempleado?</a>
         <a href="#" class="nav-item">¿Sos profesional?</a>
         <a href="#" class="nav-item active">Servicios</a>
-        <a href="#" class="nav-item login-btn">Acceder</a>
+        <a href="#" class="nav-item">Sobre nosotros</a>
         <a href="#" class="nav-item register-btn">Registrarse</a>
         <a href="#" class="nav-item register-btn">Inicia Sesion</a>
 
@@ -879,15 +871,14 @@
       </button>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-text">
-        <span class="tagline">Encuentra profesionales de confianza</span>
+        <span class="tagline">Encontrá profesionales de confianza</span>
         <h1 class="title">Los mejores <span>servicios</span> para tu hogar</h1>
-        <p class="description">Conectamos clientes con profesionales de confianza para todo tipo de trabajos y servicios</p>
+        <p class="description">Te conectamos con profesionales de confianza para todo tipo de trabajos y servicios</p>
         <div class="cta-container">
           <a href="#form" class="cta-button primary">Solicitar servicio</a>
-          <a href="#categories" class="cta-button secondary">Ver categorías</a>
+          <a href="#categories" class="cta-button primary">Ver categorías</a>
         </div>
       </div>
     </section>
@@ -1088,7 +1079,6 @@
 
     
 
-    <!-- TESTIMONIOS -->
     <section class="testimonials container">
       <h2>Lo que cuentan nuestros clientes</h2>
       <div class="testimonial-slider">
@@ -1135,7 +1125,6 @@
       </div>
     </section>
 
-    <!-- DESCARGA APP -->
     <section class="download-app">
       <div class="container">
         <h2>Descargá la APP de QuickFix</h2>
@@ -1155,7 +1144,6 @@
 
    
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -1193,12 +1181,10 @@
   </footer>
 
   <script>
-    // Mobile menu toggle
     document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
       document.querySelector('.nav').classList.toggle('active');
     });
 
-    // Testimonial slider
     const track = document.getElementById('testimonial-track');
     const dots = document.querySelectorAll('.slider-dot');
     let currentIndex = 0;
@@ -1207,28 +1193,23 @@
       currentIndex = index;
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       
-      // Update dots
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === currentIndex);
       });
     }
 
-    // Initialize dots click events
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => moveSlider(index));
     });
 
-    // Auto slide
     setInterval(() => {
       currentIndex = (currentIndex + 1) % dots.length;
       moveSlider(currentIndex);
     }, 5000);
 
-    // Form submission
     document.getElementById('budget-form').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Simulate form submission
       const submitBtn = this.querySelector('.submit-btn');
       submitBtn.innerHTML = 'Enviando... <i class="fas fa-spinner fa-spin"></i>';
       submitBtn.disabled = true;
