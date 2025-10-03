@@ -1,0 +1,70 @@
+<div class="category-card">
+        <div class="icon-circle"><i class="fas fa-trowel"></i></div>
+        <h3>Albañil</h3>
+      </div>
+
+<div class="category-card">
+        <div class="icon-circle"><i class="fas fa-soap"></i></div>
+        <h3>Personal de limpieza</h3>
+      </div>
+
+<div class="category-card">
+        <div class="icon-circle"><i class="fas fa-fan"></i></div>
+        <h3>Instalador de aires acondicionados</h3>
+      </div>
+
+<div class="category-card">
+        <div class="icon-circle"><i class="fas fa-house-damage"></i></div>
+        <h3>Techista / Impermeabilizador</h3>
+      </div>
+
+ <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-window-restore"></i></div>
+        <h3>Limpieza de vidrios en altura</h3>
+      </div>
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-rug"></i></div>
+        <h3>Lavado de alfombras / cortinas</h3>
+      </div>
+
+      
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-seedling"></i></div>
+        <h3>Jardinero</h3>
+      </div>
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-tree"></i></div>
+        <h3>Podador de árboles</h3>
+      </div>
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-swimming-pool"></i></div>
+        <h3>Mantenimiento de piletas</h3>
+      </div>
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-mountain"></i></div>
+        <h3>Paisajista</h3>
+      </div>
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-blender"></i></div>
+        <h3>Técnico de electrodomésticos</h3>
+      </div>
+
+      
+
+     
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-tv"></i></div>
+        <h3>Técnico de televisores / electrónicos</h3>
+      </div>
+
+      <div class="category-card">
+        <div class="icon-circle"><i class="fas fa-print"></i></div>
+        <h3>Técnico de impresoras</h3>
+      </div>
