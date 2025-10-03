@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Variables de colores y estilos */
     :root {
       --primary-color: #2563eb;
       --secondary-color: #3b82f6;
@@ -22,13 +21,12 @@
     }
 
     * {
-      mar n: 0;
+      margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
 
-    /* Líneas de fondo abstractas */
     .background-lines {
       position: fixed;
       top: 0;
@@ -108,7 +106,6 @@
       padding: 0 20px;
     }
 
-    /* Header/Navigation */
     .header {
       display: flex;
       justify-content: space-between;
@@ -186,6 +183,22 @@
       color: white;
     }
 
+    .login-alt {
+      padding: 8px 20px;
+      background-color: #ffffff;   
+      color: #000000;              
+      border: 0px solid #000000;   
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+      transition: all 0.3s ease;
+    }
+
+    .login-alt:hover {
+      background-color: #f1f1f1;   
+      box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+
     .mobile-menu-btn {
       display: none;
       font-size: 24px;
@@ -193,7 +206,6 @@
       color: var(--dark-color);
     }
 
-    /* Hero Section */
     .hero {
       padding: 80px 0;
       text-align: center;
@@ -283,7 +295,6 @@
       border-color: #cbd5e1;
     }
 
-    /* Categories Section */
     .categories {
       padding: 80px 0;
       background-color: var(--white);
@@ -373,7 +384,6 @@
       text-align: center;
     }
 
-    /* Form Section */
     .form-section {
       background-color: var(--white);
       padding: 40px;
@@ -463,7 +473,6 @@
       box-shadow: var(--shadow-lg);
     }
 
-    /* Testimonials */
     .testimonials {
       margin-bottom: 60px;
     }
@@ -536,7 +545,6 @@
       transform: scale(1.2);
     }
 
-    /* Download App */
     .download-app {
       background: linear-gradient(135deg, var(--primary-color) 0%, #1d4ed8 100%);
       padding: 60px 0;
@@ -587,7 +595,6 @@
       font-size: 24px;
     }
 
-    /* Blog Section */
     .blog-ideas {
       margin-bottom: 60px;
     }
@@ -655,12 +662,19 @@
       gap: 10px;
     }
 
-    /* Footer */
     footer {
       background-color: var(--dark-color);
       color: var(--white);
       padding: 50px 0 20px;
+      width: 100%; 
     }
+
+    .footer-inner {
+      max-width: 1200px; 
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
 
     .footer-content {
       display: grid;
@@ -747,13 +761,11 @@
       font-size: 14px;
     }
 
-    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Responsive Design */
     @media (max-width: 992px) {
       .title {
         font-size: 40px;
@@ -853,7 +865,6 @@
   </style>
 </head>
 <body>
-  <!-- Líneas de fondo abstractas -->
   <div class="background-lines">
     <div class="line line-1"></div>
     <div class="line line-2"></div>
@@ -862,16 +873,15 @@
   </div>
 
   <div class="container">
-    <!-- HEADER -->
     <header class="header">
       <div class="logo">Quick<span>Fix</span></div>
       <nav class="nav">
-        <a href="#" class="nav-item">Cómo funciona</a>
+        <a href="#" class="nav-item">¿Sos desempleado?</a>
         <a href="#" class="nav-item">¿Sos profesional?</a>
         <a href="#" class="nav-item active">Servicios</a>
-        <a href="#" class="nav-item login-btn">Acceder</a>
+        <a href="#" class="nav-item">Acerca de</a>
+        <a href="#" class="nav-item login-alt">Inicia Sesion</a>
         <a href="#" class="nav-item register-btn">Registrarse</a>
-        <a href="#" class="nav-item register-btn">Inicia Sesion</a>
 
       </nav>
       <button class="mobile-menu-btn" id="mobile-menu-toggle">
@@ -879,7 +889,6 @@
       </button>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-text">
         <span class="tagline">Encuentra profesionales de confianza</span>
@@ -927,7 +936,7 @@
             <option value="impresoras">Técnico de impresoras</option>
             <option value="redes">Instalador de redes / WiFi</option>
           </select>
-          <textarea placeholder="Describe tu proyecto en detalle..." required></textarea>
+          <textarea placeholder="Describe tu proyecto/problema en detalle..." required></textarea>
           <div class="file-input-container">
             <input type="file" multiple />
           </div>
@@ -1088,7 +1097,6 @@
 
     
 
-    <!-- TESTIMONIOS -->
     <section class="testimonials container">
       <h2>Lo que cuentan nuestros clientes</h2>
       <div class="testimonial-slider">
@@ -1135,9 +1143,7 @@
       </div>
     </section>
 
-    <!-- DESCARGA APP -->
     <section class="download-app">
-      <div class="container">
         <h2>Descargá la APP de QuickFix</h2>
         <p>Encontrá profesionales, pedí presupuestos y gestioná tus proyectos desde tu celular</p>
         <div class="app-buttons">
@@ -1155,50 +1161,47 @@
 
    
 
-  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <div class="footer-logo">QuickFix</div>
-          <p class="footer-desc">Conectamos clientes con profesionales de confianza para hacer realidad tus proyectos.</p>
-          <div class="cities">
-            <span class="city-tag">Buenos Aires</span>
-           
-          </div>
-        </div>
-        <div>
-          <h3 class="footer-heading">Enlaces útiles</h3>
-          <ul class="footer-links">
-            <li><a href="#">Cómo funciona</a></li>
-            <li><a href="#">¿Sos profesional?</a></li>
-            <li><a href="#">Preguntas frecuentes</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 class="footer-heading">Legal</h3>
-          <ul class="footer-links">
-            <li><a href="#">Términos y condiciones</a></li>
-            <li><a href="#">Política de privacidad</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li><a href="#">Contacto</a></li>
-          </ul>
+  <div class="footer-inner">
+    <div class="footer-content">
+      <div>
+        <div class="footer-logo">QuickFix</div>
+        <p class="footer-desc">Conectamos clientes con profesionales de confianza para hacer realidad tus proyectos.</p>
+        <div class="cities">
+          <span class="city-tag">Buenos Aires</span>
         </div>
       </div>
-      <div class="copyright">
-        <p>© 2025 QuickFix. Todos los derechos reservados.</p>
+      <div>
+        <h3 class="footer-heading">Enlaces útiles</h3>
+        <ul class="footer-links">
+          <li><a href="#">¿Sos desempleado?</a></li>
+          <li><a href="#">¿Sos profesional?</a></li>
+          <li><a href="#">Preguntas frecuentes</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="footer-heading">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="#">Términos y condiciones</a></li>
+          <li><a href="#">Política de privacidad</a></li>
+          <li><a href="#">Cookies</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
+    <div class="copyright">
+      <p>© 2025 QuickFix. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
 
   <script>
-    // Mobile menu toggle
     document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
       document.querySelector('.nav').classList.toggle('active');
     });
 
-    // Testimonial slider
     const track = document.getElementById('testimonial-track');
     const dots = document.querySelectorAll('.slider-dot');
     let currentIndex = 0;
@@ -1207,28 +1210,23 @@
       currentIndex = index;
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       
-      // Update dots
       dots.forEach((dot, i) => {
         dot.classList.toggle('active', i === currentIndex);
       });
     }
 
-    // Initialize dots click events
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => moveSlider(index));
     });
 
-    // Auto slide
     setInterval(() => {
       currentIndex = (currentIndex + 1) % dots.length;
       moveSlider(currentIndex);
     }, 5000);
 
-    // Form submission
     document.getElementById('budget-form').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Simulate form submission
       const submitBtn = this.querySelector('.submit-btn');
       submitBtn.innerHTML = 'Enviando... <i class="fas fa-spinner fa-spin"></i>';
       submitBtn.disabled = true;
