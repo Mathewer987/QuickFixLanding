@@ -6,3 +6,4 @@ document.getElementById('budget-form').addEventListener('submit', function(e) {
   e.preventDefault();
   alert('¡Tu solicitud fue enviada con éxito! (simulado)');
 });
+
