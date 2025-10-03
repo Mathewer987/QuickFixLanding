@@ -502,7 +502,6 @@
       transition: transform 0.5s ease-in-out;
     }
 
-    /* Añade estos estilos a tu sección CSS existente */
 
 .testimonials-grid {
   display: grid;
@@ -524,7 +523,6 @@
   transition: all 0.3s ease;
 }
 
-/* Animación visible de balanceo lateral */
 @keyframes visibleSway {
   0%, 100% {
     transform: translateX(0) rotate(0deg);
@@ -537,7 +535,6 @@
   }
 }
 
-/* Efecto hover - más pronunciado y con sombra */
 .testimonial-card:hover {
   animation: visibleSwayHover 3s ease-in-out infinite;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
@@ -556,7 +553,6 @@
   }
 }
 
-/* Diferentes delays para crear un efecto de balanceo en ola */
 .testimonial-card:nth-child(1) { animation-delay: 0s; }
 .testimonial-card:nth-child(2) { animation-delay: 1s; }
 .testimonial-card:nth-child(3) { animation-delay: 2s; }
@@ -564,7 +560,6 @@
 .testimonial-card:nth-child(5) { animation-delay: 4s; }
 .testimonial-card:nth-child(6) { animation-delay: 5s; }
 
-/* Media queries para responsividad */
 @media (max-width: 992px) {
   .testimonials-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -576,7 +571,6 @@
     grid-template-columns: 1fr;
   }
   
-  /* Reducir ligeramente el movimiento en móviles */
   @keyframes visibleSway {
     0%, 100% {
       transform: translateX(0) rotate(0deg);
@@ -778,7 +772,198 @@
       padding: 0 20px;
     }
 
+.about-us {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2ff 100%);
+  border-radius: 20px;
+  margin-bottom: 60px;
+}
 
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-text .tagline {
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent-color);
+  margin-bottom: 15px;
+  font-weight: 600;
+  padding: 6px 12px;
+  background-color: rgba(37, 99, 235, 0.1);
+  border-radius: 50px;
+}
+
+.about-text h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: var(--dark-color);
+  line-height: 1.2;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s ease;
+}
+
+.feature:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.feature-text h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: var(--dark-color);
+}
+
+.feature-text p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.about-stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.blue-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  width: 100%;
+}
+
+.blue-stats .stat {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.blue-stats .stat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.blue-stats .stat:hover::before {
+  opacity: 1;
+}
+
+.blue-stats .stat:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.4);
+}
+
+.blue-stats .stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--white);
+  position: relative;
+  z-index: 2;
+}
+
+.blue-stats .stat-label {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .blue-stats {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-us {
+    padding: 50px 0;
+  }
+  
+  .about-text h2 {
+    font-size: 2rem;
+  }
+  
+  .blue-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .blue-stats .stat {
+    padding: 25px 20px;
+  }
+  
+  .blue-stats .stat-number {
+    font-size: 2rem;
+  }
+}
     .footer-content {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1201,7 +1386,6 @@
 
     
 
-    <!-- Reemplaza la sección de testimonios actual con este código: -->
 <section class="testimonials container">
   <h2>Lo que cuentan nuestros clientes</h2>
   <div class="testimonials-grid">
@@ -1270,6 +1454,81 @@
       </div>
       <p class="testimonial-text">"Increíble experiencia. El pintor que contraté hizo un trabajo impecable y superó mis expectativas."</p>
       <div class="testimonial-author">- Diego M.</div>
+    </div>
+  </div>
+</section>
+
+<section class="about-us container">
+  <div class="about-content">
+    <div class="about-text">
+      <span class="tagline">Conocé nuestra historia</span>
+      <h2>Acerca de QuickFix</h2>
+      <p class="about-description">
+        En <strong>QuickFix</strong> creemos que encontrar profesionales confiables para solucionar tus problemas de forma simple, rápida y segura. Nacimos con la misión de conectar a personas que necesitan servicios con profesionales calificados en su zona.
+      </p>
+      
+      <div class="about-features">
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <div class="feature-text">
+            <h3>Rápido</h3>
+            <p>Encontrá profesionales en minutos, no en días</p>
+          </div>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <div class="feature-text">
+            <h3>Confiable</h3>
+            <p>Todos nuestros profesionales están verificados</p>
+          </div>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-hand-holding-usd"></i>
+          </div>
+          <div class="feature-text">
+            <h3>Transparente</h3>
+            <p>Precios claros sin sorpresas al final</p>
+          </div>
+        </div>
+        
+        <div class="feature">
+          <div class="feature-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="feature-text">
+            <h3>Comprometidos</h3>
+            <p>Nos importa tu satisfacción con cada servicio</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-stats-container">
+      <div class="blue-stats">
+        <div class="stat">
+          <div class="stat-number">5,000+</div>
+          <div class="stat-label">Profesionales</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">50,000+</div>
+          <div class="stat-label">Servicios realizados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Clientes satisfechos</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">15min</div>
+          <div class="stat-label">Respuesta promedio</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
